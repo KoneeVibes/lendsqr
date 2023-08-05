@@ -1,0 +1,47 @@
+legend {
+    font-family: 'Avenir Next';
+    font-weight: 400;
+    line-height: normal;
+    color: #545F7D;
+    margin-bottom: 4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+input {
+    width: stretch;
+    padding: 1rem;
+    border: 2px solid rgba(84, 95, 125, 0.15);
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    outline: none;
+    font-family: 'Avenir Next';
+    font-weight: 400;
+    line-height: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+input[type="submit"] {
+    background-color: #39CDCC;
+    border: none;
+    border-radius: 8px;
+    margin: 2rem 0 0;
+    color: var(--6, #FFF);
+    font-weight: 600;
+    letter-spacing: 0.0875rem;
+}
+
+@media screen and (min-width: 1024px) {
+    legend {
+        font-size: 1.25rem;
+    }
+
+    input {
+        font-size: '1.25rem';
+    }
+
+    input[type="submit"]{
+        font-size: 0.875rem;
+    }
+}
