@@ -1,25 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Box, Typography } from '@mui/material';
 import { Logo, SignIn } from '../../assets';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { SignUp } from '../../types/app.type';
-import './styled.css';
 import { useMediaQuery } from '@mui/material';
+import { Signup } from './signup';
+import { Context } from '../../context';
+import { Login } from './login';
 
-export const Login: React.FC<{}> = () => {
-
-    const { register, handleSubmit, formState: { errors } } = useForm<SignUp>({
-        defaultValues: {
-            email: '',
-            password: '',
-        },
-    });
-
-    const onSubmit: SubmitHandler<SignUp> = async (data) => {
-        prompt(`Currently working on registering ${data.email} and ${data.password} to the database`);
-    };
+export const Auth: React.FC<{}> = () => {
 
     const laptopScreenUpward = useMediaQuery('(min-width: 1024px)');
+    const { isSignedUp } = useContext(Context);
 
     return (
         <Container
@@ -83,46 +73,9 @@ export const Login: React.FC<{}> = () => {
                 >
                     Welcome!
                 </Typography>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <legend>Enter details to login.</legend>
-                    <input
-                        {...register('email', {
-                            required: 'Enter your email address',
-                        })}
-                        type='email'
-                        placeholder='Email'
-                    />
-                    {errors.email && <p>{errors.email.message}</p>}
-                    <input
-                        {...register('password', {
-                            required: 'Enter a password',
-                        })}
-                        type='password'
-                        placeholder='Password'
-                    />
-                    {errors.password && <p>{errors.password.message}</p>}
-                    <Typography
-                        component={'a'}
-                        href='#'
-                        fontFamily={'Avenir Next'}
-                        fontWeight={600}
-                        lineHeight={'normal'}
-                        color={'#39CDCC'}
-                        textTransform={'uppercase'}
-                        letterSpacing={'0.075rem'}
-                        overflow={'hidden'}
-                        textOverflow={'ellipsis'}
-                        display={'inline-block'}
-                        width={'stretch'}
-                        sx={{
-                            fontSize: '0.75rem',
-                            textDecoration: 'none'
-                        }}
-                    >
-                        Forgot PASSWORD?
-                    </Typography>
-                    <input type='submit' value={'LOG IN'} />
-                </form>
+                {
+                    isSignedUp ? <Login /> : <Signup />
+                }
             </Box>
         </Container>
     )

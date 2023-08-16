@@ -1,15 +1,20 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Login } from './pages/auth';
+import { Auth } from './pages/auth';
 import { Dashboard } from './pages/dashboard';
+import { Home } from './pages/home';
+import { ProtectedRoutes } from './configs/protectedRoutes';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Login />}></Route>
-        <Route path='/dashboard' element={<Dashboard />}></Route>
+        <Route path='/' element={<Auth />}></Route>
+        <Route path='/home' element={<Home />}></Route>
+        <Route element={<ProtectedRoutes />}>
+          <Route path='/dashboard' element={<Dashboard />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );

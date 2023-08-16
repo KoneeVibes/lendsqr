@@ -1,0 +1,46 @@
+import { useContext } from "react";
+import { AuthForm } from "../../components/forms/auth"
+import { SignUp } from "../../types/app.type";
+import { Context } from "../../context";
+
+export const Signup: React.FC<{}> = () => {
+
+    const { isSignedUp, setIsSignedUp } = useContext(Context);
+    const BASE_ENDPOINT = process.env.REACT_APP_BASE_ENDPOINT;
+
+    const onSubmit = async (data: SignUp) => {
+        try {
+            const response = await fetch(`${BASE_ENDPOINT}/register`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+
+            if (!response.ok) {
+                throw new Error(`Failed with status ${response.status}`);
+            }
+
+            setIsSignedUp(!isSignedUp);
+
+            const res = await response.json();
+            alert(`successfully registered: ${res.result.email} to the database`);
+
+        } catch (err) {
+            console.log(`encountered ${err}`);
+        }
+    };
+
+    return (
+        <AuthForm
+            auth={"sign up"}
+            component={"p"}
+            navigate={{
+                message: "Already have an account?",
+            }}
+            onClick={() => setIsSignedUp(!isSignedUp)}
+            onSubmit={onSubmit}
+        />
+    )
+}
