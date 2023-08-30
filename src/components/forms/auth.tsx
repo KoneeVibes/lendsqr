@@ -2,9 +2,10 @@ import { AuthFormType, SignUp } from '../../types/app.type';
 import './styled.css';
 import { useForm } from 'react-hook-form';
 import { Typography } from "@mui/material";
+import { LoadingButton } from '@mui/lab';
 
 export const AuthForm: React.FC<AuthFormType> = ({
-    onSubmit, auth, navigate, component, onClick,
+    onSubmit, auth, navigate, component, onClick, isLoading
 }) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<SignUp>({
@@ -55,7 +56,41 @@ export const AuthForm: React.FC<AuthFormType> = ({
             >
                 {navigate.message}
             </Typography>
-            <input type='submit' value={auth} />
+            <LoadingButton
+                type='submit'
+                variant='contained'
+                loading={isLoading}
+                disableElevation
+                sx={{
+                    width: "stretch",
+                    minWidth: "unset",
+                    backgroundColor: "#39CDCC",
+                    marginTop: "2rem",
+                    padding: "1rem",
+                    border: "none",
+                    borderRadius: "8px",
+                    outline: "none",
+                    ":hover": {
+                        backgroundColor: "#39CDCC",
+                    }
+                }}
+            >
+                <Typography
+                    variant='caption'
+                    fontFamily={"Avenir Next"}
+                    fontWeight={600}
+                    lineHeight={'normal'}
+                    color={'var(--6, #FFF)'}
+                    textTransform={'uppercase'}
+                    letterSpacing={'0.0875rem'}
+                    sx={{
+                        fontSize: { laptop: '0.875rem' },
+                        opacity: isLoading? 0 : 1
+                    }}
+                >
+                    {auth}
+                </Typography>
+            </LoadingButton>
         </form>
     )
 }

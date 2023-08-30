@@ -7,6 +7,7 @@ export type SignUp = {
 
 export type AuthFormType = {
     auth: string,
+    isLoading: boolean,
     component: React.ElementType<any>,
     navigate: {
         message: string,

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AuthForm } from "../../components/forms/auth";
 import { SignUp } from "../../types/app.type";
 import Cookies from "universal-cookie";
@@ -5,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 export const Login: React.FC<{}> = () => {
 
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const cookies = new Cookies();
     const navigate = useNavigate();
     const BASE_ENDPOINT = process.env.REACT_APP_BASE_ENDPOINT;
 
     const onSubmit = async (data: SignUp) => {
         try {
+            setIsLoading(true);
             const response = await fetch(`${BASE_ENDPOINT}/login`, {
                 method: "POST",
                 headers: {
@@ -20,6 +23,7 @@ export const Login: React.FC<{}> = () => {
             })
 
             if (!response.ok) {
+                setIsLoading(false);
                 throw new Error(`Failed with status ${response.status}`);
             }
 
@@ -27,10 +31,12 @@ export const Login: React.FC<{}> = () => {
 
             cookies.set("TOKEN", res.token, {
                 path: "/",
+                // httpOnly: true,
             });
             navigate("/dashboard");
 
         } catch (err) {
+            setIsLoading(false);
             console.log(`encountered ${err}`);
         }
     };
@@ -38,6 +44,7 @@ export const Login: React.FC<{}> = () => {
     return (
         <AuthForm
             auth={"login"}
+            isLoading={isLoading}
             component={"a"}
             navigate={{
                 message: "Forgot PASSWORD?",
