@@ -19,7 +19,6 @@ export const Login: React.FC<{}> = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                credentials: "include",
                 body: JSON.stringify(data),
             })
 
