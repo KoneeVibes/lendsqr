@@ -14,7 +14,8 @@ export const Dashboard: React.FC<{}> = () => {
         fetch(`${BASE_ENDPOINT}/dashboard`, {
             headers: {
                 "Authorization": `Bearer ${token}`
-            }
+            },
+            credentials: "include"
         })
             .then((res) => {
                 res.json()
