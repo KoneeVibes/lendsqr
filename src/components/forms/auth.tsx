@@ -76,7 +76,7 @@ export const AuthForm: React.FC<AuthFormType> = ({
                 }}
             >
                 <Typography
-                    variant='caption'
+                    variant='button'
                     fontFamily={"Avenir Next"}
                     fontWeight={600}
                     lineHeight={'normal'}
@@ -85,7 +85,7 @@ export const AuthForm: React.FC<AuthFormType> = ({
                     letterSpacing={'0.0875rem'}
                     sx={{
                         fontSize: { laptop: '0.875rem' },
-                        opacity: isLoading? 0 : 1
+                        opacity: isLoading ? 0 : 1
                     }}
                 >
                     {auth}

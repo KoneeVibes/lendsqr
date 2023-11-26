@@ -6,9 +6,10 @@ export const Context = createContext({} as ContextType)
 export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
 
     const [isSignedUp, setIsSignedUp] = useState<boolean>(false);
+    const [isSideNavOpen, setIsSideNavOpen] = useState<boolean>(true);
 
     return (
-        <Context.Provider value={{ isSignedUp, setIsSignedUp }}>
+        <Context.Provider value={{ isSignedUp, setIsSignedUp, isSideNavOpen, setIsSideNavOpen }}>
             {children}
         </Context.Provider>
     )

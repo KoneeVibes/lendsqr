@@ -52,10 +52,54 @@ export const theme = createTheme({
             whiteSpace: "nowrap",
             textOverflow: "ellipsis",
         },
-        caption: {
+        button: {
             overflow: "hidden",
             whiteSpace: "nowrap",
             textOverflow: "ellipsis",
         }
     },
+
+    components: {
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    '&::before, &::after': {
+                        display: 'none'
+                    },
+                },
+                wrapper: {
+                    padding: '0 1rem',
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
+                    textOverflow: "ellipsis",
+                    textTransform: 'uppercase',
+                    fontFamily: 'Work Sans',
+                    fontSize: '12px',
+                    fontWeight: 500,
+                    lineHeight: 'normal',
+                    color: '#545F7D'
+                }
+            }
+        },
+        MuiListItemText: {
+            styleOverrides: {
+                primary: {
+                    fontFamily: 'Work Sans',
+                    fontSize: '16px',
+                    fontWeight: 400,
+                    lineHeight: 'normal',
+                    color: '#213F7D'
+                }
+            }
+        },
+        MuiToolbar: {
+            styleOverrides: {
+                root: {
+                    width: '100%',
+                    minHeight: '100px',
+                    paddingRight: '24px',
+                }
+            }
+        }
+    }
 })
