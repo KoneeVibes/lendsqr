@@ -51,7 +51,7 @@ export const Dashboard: React.FC<{}> = () => {
     return (
         <Box
             sx={{
-                display: "flex"
+                display: "flex",
             }}
         >
             <CssBaseline />
@@ -63,11 +63,18 @@ export const Dashboard: React.FC<{}> = () => {
                 isSideNavOpen={isSideNavOpen}
                 handleSideNavClose={handleSideNavClose}
             />
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+            <Box
+                component="main"
+                sx={{
+                    flexGrow: 1, p: 3, 
+                    width: '100%',
+                    overflow: 'hidden',
+                }}
+            >
                 <SideNavHeader />
                 <Typography variant='body1' whiteSpace={'normal'}>{message}. However, our dashboard is still in the making. Hold on just a little more.</Typography>
                 <br />
-                <button onClick={logOut}>Log Out</button>
+                <button onClick={logOut} style={{width: '100%', overflow: 'hidden'}}>Log Out</button>
             </Box>
         </Box>
     )

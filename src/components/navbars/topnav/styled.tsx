@@ -11,6 +11,7 @@ export const SearchBox = styled('div')
         border: '1px solid rgba(33, 63, 125, .2)',
         width: '100%',
         display: 'flex',
+        justifyContent: 'space-between',
         [theme.breakpoints.up('miniTablet')]: {
             marginLeft: theme.spacing(1),
             width: 'auto',

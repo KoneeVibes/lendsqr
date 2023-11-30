@@ -51,10 +51,14 @@ export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen
                     <MenuIcon />
                 </IconButton>
                 <Stack
-                    direction={'row'}
                     width={'-webkit-fill-available'}
-                    alignItems={'center'}
                     justifyContent={'space-between'}
+                    overflow={'hidden'}
+                    gap={1}
+                    sx={{
+                        flexDirection: { mobile: 'column-reverse', laptop: 'row' },
+                        alignItems: { mobile: 'flex-end', laptop: 'center' }
+                    }}
                 >
                     <SearchBox>
                         <StyledInputBase
@@ -69,6 +73,9 @@ export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen
                         direction={'row'}
                         spacing={3}
                         alignItems={'center'}
+                        justifyContent={'flex-end'}
+                        width={'100%'}
+                        overflow={'hidden'}
                     >
                         <Link
                             fontFamily={'Roboto'}
