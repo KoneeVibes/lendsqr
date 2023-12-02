@@ -12,6 +12,9 @@ const openedMixin = (theme: Theme): CSSObject => ({
     overflowX: 'hidden',
     border: '1px solid rgba(33, 63, 125, 0.06)',
     boxShadow: '3px 5px 20px 0px rgba(0, 0, 0, 0.04)',
+    [theme.breakpoints.down('miniTablet')]: {
+        width: 'auto'
+    },
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
@@ -50,7 +53,12 @@ export const StyledWrapper = styled(MuiDrawer, {
         boxSizing: 'border-box',
         ...(open && {
             ...openedMixin(theme),
-            '& .MuiDrawer-paper': openedMixin(theme),
+            '& .MuiDrawer-paper': {
+                ...openedMixin(theme),
+                [theme.breakpoints.down('miniTablet')]: {
+                    width: '100%'
+                },
+            },
         }),
         ...(!open && {
             ...closedMixin(theme),

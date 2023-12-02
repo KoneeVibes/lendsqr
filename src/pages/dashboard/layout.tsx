@@ -66,7 +66,7 @@ export const Dashboard: React.FC<{}> = () => {
             <Box
                 component="main"
                 sx={{
-                    flexGrow: 1, p: 3, 
+                    flexGrow: 1, p: 3,
                     width: '100%',
                     overflow: 'hidden',
                 }}
@@ -74,7 +74,7 @@ export const Dashboard: React.FC<{}> = () => {
                 <SideNavHeader />
                 <Typography variant='body1' whiteSpace={'normal'}>{message}. However, our dashboard is still in the making. Hold on just a little more.</Typography>
                 <br />
-                <button onClick={logOut} style={{width: '100%', overflow: 'hidden'}}>Log Out</button>
+                <button onClick={logOut} style={{ maxWidth: '100%', overflow: 'hidden' }}>Log Out</button>
             </Box>
         </Box>
     )

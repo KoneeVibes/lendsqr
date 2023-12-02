@@ -29,7 +29,7 @@ export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen
             theme={theme}
             open={isSideNavOpen}
             sx={{
-                background: "#FFFFFF"
+                background: "#FFFFFF",
             }}
         >
             <Toolbar>
@@ -42,10 +42,14 @@ export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen
                         marginRight: 4.5,
                         background: '#213F7D',
                         borderRadius: '8px',
-                        ...(isSideNavOpen && { display: 'none' }),
                         '&:hover': {
                             background: '#213F7D'
-                        }
+                        },
+                        ...(isSideNavOpen && { display: 'none' }),
+                        [theme.breakpoints.down('miniTablet')]: {
+                            top: '23.5%',
+                            left: '6%',
+                        },
                     }}
                 >
                     <MenuIcon />
@@ -74,7 +78,6 @@ export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen
                         spacing={3}
                         alignItems={'center'}
                         justifyContent={'flex-end'}
-                        width={'100%'}
                         overflow={'hidden'}
                     >
                         <Link
@@ -134,6 +137,6 @@ export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen
                     </Stack>
                 </Stack>
             </Toolbar>
-        </StyledWrapper>
+        </StyledWrapper >
     )
 }

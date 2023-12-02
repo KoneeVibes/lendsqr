@@ -41,6 +41,9 @@ export const StyledInputBase = styled(InputBase)
         [theme.breakpoints.up('desktop')]: {
             minWidth: '344px'
         },
+        [theme.breakpoints.between('tablet', 'laptop')]: {
+            minWidth: '344px'
+        },
         '& .MuiInputBase-input': {
             padding: theme.spacing(1, 1, 1, 2),
             width: '100%',
@@ -70,6 +73,9 @@ export const StyledWrapper = styled(MuiAppBar, {
                 duration: theme.transitions.duration.enteringScreen,
             }),
         }),
+        [theme.breakpoints.down('miniTablet')]: (open && {
+            display: 'none'
+        })
     })}
 `;
 
