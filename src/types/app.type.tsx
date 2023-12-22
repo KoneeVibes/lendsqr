@@ -25,7 +25,7 @@ export type TopNavProps = {
 
 export type TopNavStyledWrapperProps = {
     open?: boolean;
-} & MuiAppBarProps; 
+} & MuiAppBarProps;
 
 export type SideNavProps = {
     isSideNavOpen: boolean
@@ -34,9 +34,9 @@ export type SideNavProps = {
 
 export type DialogProps = {
     content: {
-        icon:any //shouldn't be
+        icon: any //shouldn't be
         title: string,
     }[];
     isOpen: boolean;
-    onClose: () => void;
+    onClose: (action: string) => void;
 }

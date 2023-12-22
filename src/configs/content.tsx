@@ -1,6 +1,6 @@
 import { AuditLogs, Dashboard, DecisionModels, FeesAndCharges, FeesAndPricing, Guarantors, Karma, LoanProducts, LoanRequests, Loans, Organization, Preferences, Reports, Savings, SavingsProducts, ServiceAccount, Services, Settlements, Transactions, Users, Whitelist } from "../assets";
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import AddNewUserIcon from '@mui/icons-material/PersonAddAlt';
 
 export const sideNavItems = [
     {
@@ -115,11 +115,122 @@ export const sideNavItems = [
 
 export const dialogBoxItems = [
     {
-        icon: <PermIdentityIcon />,
-        title: 'Change Avatar'
+        icon: <AddNewUserIcon />,
+        title: 'Add New User'
     },
     {
         icon: <ManageAccountsIcon />,
         title: 'Manage Accounts'
+    }
+]
+
+export const personalInfoFields = [
+    {
+        name: 'username',
+        placeholder: 'username'
+    },
+    {
+        name: 'useremail',
+        placeholder: 'email'
+    },
+    {
+        name: 'password',
+        placeholder: 'password'
+    },
+    {
+        name: 'phoneNumber',
+        placeholder: 'phone number'
+    },
+    {
+        name: 'firstName',
+        placeholder: 'user first name'
+    },
+    {
+        name: 'lastName',
+        placeholder: 'user last name'
+    },
+    {
+        name: 'BVN',
+        placeholder: 'user BVN'
+    },
+]
+
+export const personalInfoSelectFields = [
+    {
+        name: 'maritalStatus',
+        option1: 'Single',
+        option2: 'Married',
+    },
+    {
+        name: 'children',
+        option1: 'None',
+        option2: 'Family'
+    },
+    {
+        name: 'Type of Residence',
+        option1: "Parent's Residence",
+        option2: "Personal Apartment"
+    }
+]
+
+export const educationAndEmployment = [
+    {
+        name: 'educationLevel',
+        option1: 'Level of Education',
+        option2: 'Level of Education'
+    },
+    {
+        name: 'employmentStatus',
+        option1: 'Employment Status',
+        option2: 'Employment Status'
+    },
+    {
+        name: 'employmentSector',
+        option1: 'Sector of Employment',
+        option2: 'Sector of Employment'
+    },
+    {
+        name: 'employmentDuration',
+        option1: 'Duration of Employment',
+        option2: 'Duration of Employment'
+    },
+    {
+        name: 'monthlyIncome',
+        option1: 'Select range of Monthly Income',
+        option2: 'Select range of Monthly Income'
+    }
+]
+
+export const socials = [
+    {
+        name: "twitter",
+        placeholder: "Enter twitter handle"
+    },
+    {
+        name: "facebook",
+        placeholder: "Enter facebook handle"
+    },
+    {
+        name: "instagram",
+        placeholder: "Enter instagram handle"
+    }
+];
+
+export const guarantorInfo = [
+    {
+        name: "fullname",
+        placeholder: "Enter Guarantor Full Name"
+    },
+    {
+        name: "phoneNumber",
+        placeholder: "Enter Guarantor Phone Number"
+    },
+    {
+        name: "email",
+        placeholder: "Enter Guarantor Email"
+    },
+    {
+        name: "relationship",
+        placeholder: "State Relationship with Guarantor"
     }
 ]

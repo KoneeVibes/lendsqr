@@ -15,7 +15,7 @@ export const DialogBox: React.FC<DialogProps> = ({ onClose, isOpen, content }) =
                         disableGutters
                         key={index}
                     >
-                        <ListItemButton onClick={onClose}>
+                        <ListItemButton onClick={() => onClose(content.title)}>
                             <ListItemAvatar>
                                 <Avatar>
                                     {content.icon}

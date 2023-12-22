@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TopNavProps } from '../../../types/app.type';
-import { IconButton, Link, Stack, Toolbar, Avatar, Button, Typography } from '@mui/material';
+import { IconButton, Link, Stack, Toolbar, Avatar, Button, Typography, Modal } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
@@ -10,18 +10,31 @@ import { DummyAvatar } from '../../../assets';
 import { DialogBox } from '../../dialog/dialog';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { dialogBoxItems } from '../../../configs/content';
+import { AddUserForm } from '../../forms/addUser';
 
 export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen }) => {
-
     const [isAvatarOpen, setIsAvatarOpen] = useState<boolean>(false);
+    const [isNewUserModalOpen, setIsNewUserModalOpen] = useState(false);
 
     const handleAvatarOpen = () => {
         setIsAvatarOpen(true);
     };
 
-    const handleAvatarClose = () => {
-        setIsAvatarOpen(false);
+    const handleAvatarClose = (action: string) => {
+        switch (action) {
+            case 'Add New User':
+                setIsAvatarOpen(false);
+                return setIsNewUserModalOpen(true);
+            case 'Manage Accounts':
+                return setIsAvatarOpen(false);
+            default:
+                return setIsAvatarOpen(false);
+        }
     };
+
+    const handleNewUserModalClose = () => {
+        setIsNewUserModalOpen(false)
+    }
 
     return (
         <StyledWrapper
@@ -132,6 +145,15 @@ export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen
                                     onClose={handleAvatarClose}
                                     content={dialogBoxItems}
                                 />
+                                <Modal
+                                    open={isNewUserModalOpen}
+                                    onClose={handleNewUserModalClose}
+                                    aria-labelledby="Add new user form"
+                                >
+                                    <>
+                                        <AddUserForm />
+                                    </>
+                                </Modal>
                             </Stack>
                         </Stack>
                     </Stack>

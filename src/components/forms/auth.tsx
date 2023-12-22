@@ -1,5 +1,5 @@
 import { AuthFormType, SignUp } from '../../types/app.type';
-import './styled.css';
+import { BaseForm } from './styled';
 import { useForm } from 'react-hook-form';
 import { Typography } from "@mui/material";
 import { LoadingButton } from '@mui/lab';
@@ -16,7 +16,7 @@ export const AuthForm: React.FC<AuthFormType> = ({
     });
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <BaseForm onSubmit={handleSubmit(onSubmit)}>
             <legend>Enter details to {auth}.</legend>
             <input
                 {...register('email', {
@@ -91,6 +91,6 @@ export const AuthForm: React.FC<AuthFormType> = ({
                     {auth}
                 </Typography>
             </LoadingButton>
-        </form>
+        </BaseForm>
     )
 }

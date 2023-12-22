@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { Container, Box, Typography } from '@mui/material';
 import { Logo, SignIn } from '../../assets';
 import { useMediaQuery } from '@mui/material';
-import { Signup } from './signup';
+import { Signup } from '../../containers/auth/signup';
 import { Context } from '../../context';
-import { Login } from './login';
+import { Login } from '../../containers/auth/login';
 
 export const Auth: React.FC<{}> = () => {
 

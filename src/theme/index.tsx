@@ -100,6 +100,18 @@ export const theme = createTheme({
                     paddingRight: '24px',
                 }
             }
+        },
+        MuiStepIcon: {
+            styleOverrides: {
+                root: {
+                    "&.Mui-completed": {
+                        color: '#39CDCC !important'
+                    },
+                    "&.Mui-active": {
+                        color: '#39CDCC !important'
+                    }
+                },
+            }
         }
     }
 })
