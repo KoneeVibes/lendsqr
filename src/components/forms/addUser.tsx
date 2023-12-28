@@ -55,7 +55,7 @@ export const AddUserForm = () => {
 
     const onSubmit = async (data: any) => {
         try {
-            const response = await fetch(`${BASE_ENDPOINT}/register/dashboard/adduser`, {
+            const response = await fetch(`${BASE_ENDPOINT}/dashboard/adduser`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
