@@ -176,28 +176,28 @@ export const personalInfoSelectFields = [
 export const educationAndEmployment = [
     {
         name: 'educationLevel',
-        option1: 'Level of Education',
-        option2: 'Level of Education'
+        option1: 'B.Eng & Above',
+        option2: 'Below B.Eng'
     },
     {
         name: 'employmentStatus',
-        option1: 'Employment Status',
-        option2: 'Employment Status'
+        option1: 'Employed',
+        option2: 'Unemployed'
     },
     {
         name: 'employmentSector',
-        option1: 'Sector of Employment',
-        option2: 'Sector of Employment'
+        option1: 'IT/Oil and Gas',
+        option2: 'Others'
     },
     {
         name: 'employmentDuration',
-        option1: 'Duration of Employment',
-        option2: 'Duration of Employment'
+        option1: 'Above 2 years',
+        option2: 'Under 2 years'
     },
     {
         name: 'monthlyIncome',
-        option1: 'Select range of Monthly Income',
-        option2: 'Select range of Monthly Income'
+        option1: 'Minimum wage - N200,000',
+        option2: 'Above N200,000'
     }
 ]
 

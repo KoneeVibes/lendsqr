@@ -8,12 +8,12 @@ import { educationAndEmployment, guarantorInfo, personalInfoFields, personalInfo
 
 export const AddUserForm = () => {
     const { register, handleSubmit } = useForm();
+    const BASE_ENDPOINT = process.env.REACT_APP_BASE_ENDPOINT;
     const cookies = new Cookies();
     const token = cookies.get('TOKEN');
-    const steps = ['Personal Information', 'Education and Employment', 'Socials'];
+    const steps = ['Personal Information', 'Education and Employment', 'Socials', 'Guarantor'];
     const [skipped, setSkipped] = useState(new Set<number>());
     const [activeStep, setActiveStep] = useState(0);
-
 
     const isStepOptional = (step: number) => {
         return step === 1;
@@ -55,7 +55,7 @@ export const AddUserForm = () => {
 
     const onSubmit = async (data: any) => {
         try {
-            const response = await fetch('http://localhost:3001/dashboard/adduser', {
+            const response = await fetch(`${BASE_ENDPOINT}/register/dashboard/adduser`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ export const AddUserForm = () => {
                             <select
                                 key={index}
                                 placeholder={`${field.name}`}
-                                {...register(`personalInfo.${field.name}`)}
+                                {...register(`educationAndEmployment.${field.name}`)}
                             >
                                 <option value={`${field.option1}`}>{`${field.option1}`}</option>
                                 <option value={`${field.option2}`}>{`${field.option2}`}</option>
@@ -134,7 +134,7 @@ export const AddUserForm = () => {
                             <input
                                 key={index}
                                 placeholder={`Enter ${field.placeholder}`}
-                                {...register(`personalInfo.${field.name}`, {
+                                {...register(`socials.${field.name}`, {
                                     required: true
                                 })}
                             />
@@ -154,7 +154,7 @@ export const AddUserForm = () => {
                             <input
                                 key={index}
                                 placeholder={`Enter ${field.placeholder}`}
-                                {...register(`personalInfo.${field.name}`, {
+                                {...register(`guarantor.${field.name}`, {
                                     required: true
                                 })}
                             />
