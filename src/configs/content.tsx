@@ -1,4 +1,4 @@
-import { AuditLogs, Dashboard, DecisionModels, FeesAndCharges, FeesAndPricing, Guarantors, Karma, LoanProducts, LoanRequests, Loans, Organization, Preferences, Reports, Savings, SavingsProducts, ServiceAccount, Services, Settlements, Transactions, Users, Whitelist } from "../assets";
+import { AuditLogs, Dashboard, DecisionModels, FeesAndCharges, FeesAndPricing, Guarantors, Karma, LoanProducts, LoanRequests, Loans, Organization, Preferences, Reports, Savings, SavingsProducts, ServiceAccount, Services, Settlements, Transactions, Users, Whitelist, UsersIcon, UsersWithLoans, UsersWithSavings, ActiveUsers } from "../assets";
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import AddNewUserIcon from '@mui/icons-material/PersonAddAlt';
 
@@ -233,4 +233,23 @@ export const guarantorInfo = [
         name: "relationship",
         placeholder: "State Relationship with Guarantor"
     }
+]
+
+export const boards = [
+    {
+        name: "users",
+        icon: <UsersIcon />
+    },
+    {
+        name: "active users",
+        icon: <ActiveUsers />
+    },
+    {
+        name: "users with loans",
+        icon: <UsersWithLoans />
+    },
+    {
+        name: "users with savings",
+        icon: <UsersWithSavings />
+    },
 ]

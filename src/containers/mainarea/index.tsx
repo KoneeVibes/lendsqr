@@ -4,6 +4,7 @@ import { SideNavHeader } from "../../components/navbars/sidenav/styled";
 import Cookies from "universal-cookie";
 import { useNavigate } from 'react-router-dom';
 import { UsersTable } from "../users/userstable";
+import { Usersboard } from "../users/usersboard";
 
 export const MainArea = () => {
     const navigate = useNavigate();
@@ -41,15 +42,27 @@ export const MainArea = () => {
         <Box
             component="main"
             sx={{
-                flexGrow: 1, p: 3,
-                width: '100%',
+                flex: "1 0 auto",
                 overflow: 'hidden',
             }}
         >
-            <SideNavHeader />
-            <Typography variant='body1' whiteSpace={'normal'}>{message}. However, our dashboard is still in the making. Hold on just a little more.</Typography>
-            <UsersTable />
-            <button onClick={logOut} style={{ maxWidth: '100%', overflow: 'hidden' }}>Log Out</button>
+            <Box
+                sx={{
+                    position: "fixed",
+                    top: "0",
+                    padding: 3,
+                    outline: 0,
+                    height: "100%",
+                    width: "stretch",
+                    overflowY: "auto",
+                }}
+            >
+                <SideNavHeader />
+                <Typography variant='body1' whiteSpace={'normal'}>{message}. However, our dashboard is still in the making. Hold on just a little more.</Typography>
+                <Usersboard />
+                <UsersTable />
+                <button onClick={logOut} style={{ maxWidth: '100%', overflow: 'hidden' }}>Log Out</button>
+            </Box>
         </Box>
     )
 }

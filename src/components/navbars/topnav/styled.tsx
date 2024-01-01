@@ -73,7 +73,7 @@ export const StyledWrapper = styled(MuiAppBar, {
                 duration: theme.transitions.duration.enteringScreen,
             }),
         }),
-        [theme.breakpoints.down('miniTablet')]: (open && {
+        [theme.breakpoints.down('tablet')]: (open && {
             display: 'none'
         })
     })}

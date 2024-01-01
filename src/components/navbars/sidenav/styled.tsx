@@ -55,7 +55,7 @@ export const StyledWrapper = styled(MuiDrawer, {
             ...openedMixin(theme),
             '& .MuiDrawer-paper': {
                 ...openedMixin(theme),
-                [theme.breakpoints.down('miniTablet')]: {
+                [theme.breakpoints.down('tablet')]: {
                     width: '100%'
                 },
             },
