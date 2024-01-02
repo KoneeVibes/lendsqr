@@ -33,7 +33,7 @@ export const Usersboard = () => {
                 Users
             </Typography>
             <Stack
-                direction={"row"}
+                direction={{ mobile: "column", tablet: "row" }}
                 spacing={4}
                 justifyContent={"space-between"}
             >
@@ -58,6 +58,7 @@ export const Usersboard = () => {
                                         color={"#545F7D"}
                                         marginBlockStart={3}
                                         textTransform={"uppercase"}
+                                        whiteSpace={"normal"}
                                     >
                                         {board.name}
                                     </Typography>
