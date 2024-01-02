@@ -5,7 +5,6 @@ import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 
 export const Login: React.FC<{}> = () => {
-
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const cookies = new Cookies();
     const navigate = useNavigate();
@@ -33,6 +32,10 @@ export const Login: React.FC<{}> = () => {
                 path: "/",
                 // httpOnly: true,
             });
+
+            cookies.set("USER", res.userInfo, {
+                path: "/",
+            })
             navigate("/dashboard");
 
         } catch (err) {

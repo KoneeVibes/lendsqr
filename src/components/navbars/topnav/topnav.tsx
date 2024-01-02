@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TopNavProps } from '../../../types/app.type';
 import { IconButton, Link, Stack, Toolbar, Avatar, Button, Typography, Modal } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -11,10 +11,17 @@ import { DialogBox } from '../../dialog/dialog';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { dialogBoxItems } from '../../../configs/content';
 import { AddUserForm } from '../../forms/addUser';
+import Cookies from "universal-cookie";
+import { useNavigate } from 'react-router-dom';
+import userConfigs from '../../../configs/manageUsers';
 
 export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen }) => {
     const [isAvatarOpen, setIsAvatarOpen] = useState<boolean>(false);
     const [isNewUserModalOpen, setIsNewUserModalOpen] = useState(false);
+    const [user, setUser] = useState<Record<string, any>>({})
+    const cookies = new Cookies();
+    const token = cookies.get("TOKEN");
+    const navigate = useNavigate();
 
     const handleAvatarOpen = () => {
         setIsAvatarOpen(true);
@@ -25,7 +32,9 @@ export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen
             case 'Add New User':
                 setIsAvatarOpen(false);
                 return setIsNewUserModalOpen(true);
-            case 'Manage Accounts':
+            case 'Log Out':
+                cookies.remove("TOKEN", { path: "/" });
+                navigate("/")
                 return setIsAvatarOpen(false);
             default:
                 return setIsAvatarOpen(false);
@@ -35,6 +44,16 @@ export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen
     const handleNewUserModalClose = () => {
         setIsNewUserModalOpen(false)
     }
+
+    useEffect(() => {
+        userConfigs.getUser(token)
+            .then((res) => {
+                setUser(res.user[0]);
+            })
+            .catch((error) => {
+                console.error('Error fetching users:', error);
+            });
+    }, [token])
 
     return (
         <StyledWrapper
@@ -137,7 +156,7 @@ export const TopNav: React.FC<TopNavProps> = ({ isSideNavOpen, handleSideNavOpen
                                         color={'#213F7D'}
                                         textTransform={'capitalize'}
                                     >
-                                        Adedeji
+                                        {user?.personalInfo?.username || user?.personalInfo?.email}
                                     </Typography>
                                 </Button>
                                 <DialogBox

@@ -1,5 +1,5 @@
 import { AuditLogs, Dashboard, DecisionModels, FeesAndCharges, FeesAndPricing, Guarantors, Karma, LoanProducts, LoanRequests, Loans, Organization, Preferences, Reports, Savings, SavingsProducts, ServiceAccount, Services, Settlements, Transactions, Users, Whitelist, UsersIcon, UsersWithLoans, UsersWithSavings, ActiveUsers } from "../assets";
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import LogoutIcon from '@mui/icons-material/Logout';
 import AddNewUserIcon from '@mui/icons-material/PersonAddAlt';
 
 export const sideNavItems = [
@@ -119,8 +119,8 @@ export const dialogBoxItems = [
         title: 'Add New User'
     },
     {
-        icon: <ManageAccountsIcon />,
-        title: 'Manage Accounts'
+        icon: <LogoutIcon />,
+        title: 'Log Out'
     }
 ]
 

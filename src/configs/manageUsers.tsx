@@ -1,8 +1,12 @@
-const BASE_ENDPOINT = process.env.REACT_APP_BASE_ENDPOINT;
+import Cookies from "universal-cookie";
 
-const getUser = async (token: String, { _id }: { _id: String, token: String }) => {
+const BASE_ENDPOINT = process.env.REACT_APP_BASE_ENDPOINT;
+const cookies = new Cookies();
+const loggedInUser = cookies.get("USER");
+
+const getUser = async (token: string, _id?: string) => {
     try {
-        const response = await fetch(`${BASE_ENDPOINT}/dashboard/user/${_id}`, {
+        const response = await fetch(`${BASE_ENDPOINT}/dashboard/user/${loggedInUser._id}`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -15,7 +19,7 @@ const getUser = async (token: String, { _id }: { _id: String, token: String }) =
     }
 }
 
-const getAllUsers = async (token: String) => {
+const getAllUsers = async (token: string) => {
     try {
         const response = await fetch(`${BASE_ENDPOINT}/dashboard/user`, {
             method: "GET",
